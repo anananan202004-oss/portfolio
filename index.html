@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Cá Nhân</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- File CSS của mình -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav>
+    <a href="#home" class="nav-logo">My<span>Portfolio</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== SECTION 1: HOME ===== -->
+  <section id="home">
+    <div class="container">
+
+      <!-- Ảnh đại diện: thay 'images/avatar.jpg' bằng ảnh thật của bạn -->
+      <div class="avatar">
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <!-- Họ tên -->
+      <div class="home-name">Phan Ngọc Tường An</div>
+
+      <!-- Thông tin cơ bản -->
+      <div class="home-info">
+        <span class="home-info-item"><i class="fa-solid fa-cake-candles"></i> 04/03/2004</span>
+        <span class="home-info-item"><i class="fa-solid fa-graduation-cap"></i> Công nghệ thông tin</span>
+        <span class="home-info-item"><i class="fa-solid fa-code"></i> An Ninh Mạng</span>
+      </div>
+
+      <!-- Nút chuyển đến Contact -->
+      <a href="#contact" class="btn-primary">
+        <i class="fa-solid fa-envelope" style="margin-right:0.4rem;"></i>
+        Liên hệ với tôi
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: ABOUT ===== -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Về <span>tôi</span></h2>
+      <div class="title-line"></div>
+
+      <div class="about-card">
+        <p>Tôi là sinh viên thuộc ngành <strong>Công nghệ thông tin</strong>, chuyên ngành
+          <strong>An ninh mạng</strong>, với mong muốn không ngừng học hỏi và phát triển
+          kiến thức trong lĩnh vực công nghệ thông tin.</p>
+        <p>Thông qua website này, tôi mong muốn giới thiệu bản thân cũng như những kỹ năng
+          đã tích lũy trong quá trình học tập. Tôi luôn cởi mở với các cơ hội học tập mới,
+          hợp tác nhóm và sẵn sàng tiếp cận những thách thức trong môi trường thực tế.</p>
+        <p>Ngoài việc học lập trình, tôi quan tâm đến thiết kế giao diện người dùng
+          (UI/UX) và các công nghệ điện toán đám mây hiện đại.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: SKILLS ===== -->
+  <!--
+    CÁCH THÊM KỸ NĂNG MỚI:
+    Sao chép 1 khối <div class="skill-card"> và chỉnh các data-* sau:
+      data-title      : tên kỹ năng
+      data-level      : % thành thạo (0-100)
+      data-level-text : chữ hiển thị mức độ
+      data-desc       : mô tả ngắn
+      data-tags       : các tag, cách nhau bởi dấu |
+  -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Kỹ <span>năng</span></h2>
+      <div class="title-line"></div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card" onclick="openSkillModal(this)"
+          data-title="HTML5" data-level="65" data-level-text="Cơ bản – Trung cấp"
+          data-desc="Nắm vững cấu trúc trang web với HTML5, biết sử dụng các thẻ ngữ nghĩa như header, section, article, footer. Có thể xây dựng bố cục trang web hoàn chỉnh."
+          data-tags="Semantic HTML|Forms|Tables|Media|Accessibility">
+          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+          <div>
+            <div class="skill-name">HTML5</div>
+            <div class="skill-level">Cơ bản – Trung cấp</div>
+            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
+          </div>
+        </div>
+
+        <div class="skill-card" onclick="openSkillModal(this)"
+          data-title="CSS3" data-level="60" data-level-text="Cơ bản – Trung cấp"
+          data-desc="Biết tạo giao diện responsive với Flexbox và Grid. Có kinh nghiệm với animation, transition và CSS variables để xây dựng UI đẹp, nhất quán."
+          data-tags="Flexbox|Grid|Animation|Responsive|Variables">
+          <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
+          <div>
+            <div class="skill-name">CSS3</div>
+            <div class="skill-level">Cơ bản – Trung cấp</div>
+            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
+          </div>
+        </div>
+
+        <div class="skill-card" onclick="openSkillModal(this)"
+          data-title="Bootstrap 5" data-level="45" data-level-text="Cơ bản"
+          data-desc="Sử dụng được hệ thống grid của Bootstrap, các component cơ bản như navbar, card, button, modal. Biết tùy chỉnh giao diện nhanh chóng với utility classes."
+          data-tags="Grid System|Components|Utilities|Responsive">
+          <div class="skill-icon"><i class="fa-brands fa-bootstrap"></i></div>
+          <div>
+            <div class="skill-name">Bootstrap 5</div>
+            <div class="skill-level">Cơ bản</div>
+            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
+          </div>
+        </div>
+
+        <div class="skill-card" onclick="openSkillModal(this)"
+          data-title="JavaScript" data-level="40" data-level-text="Cơ bản"
+          data-desc="Hiểu các khái niệm căn bản: biến, hàm, vòng lặp, điều kiện, DOM manipulation. Có thể viết script đơn giản để xử lý sự kiện và tương tác với trang web."
+          data-tags="DOM|Events|Functions|Arrays|ES6 Basics">
+          <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+          <div>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-level">Cơ bản</div>
+            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
+          </div>
+        </div>
+
+        <div class="skill-card" onclick="openSkillModal(this)"
+          data-title="GitHub" data-level="40" data-level-text="Cơ bản"
+          data-desc="Biết sử dụng Git cơ bản: init, add, commit, push, pull. Có thể tạo repository, quản lý phiên bản code và cộng tác thông qua GitHub."
+          data-tags="Git|Repository|Commit|Push/Pull|Version Control">
+          <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
+          <div>
+            <div class="skill-name">GitHub</div>
+            <div class="skill-level">Cơ bản</div>
+            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
+          </div>
+        </div>
+
+        <div class="skill-card" onclick="openSkillModal(this)"
+          data-title="Cloud Computing" data-level="30" data-level-text="Cơ bản"
+          data-desc="Nắm được các khái niệm căn bản về điện toán đám mây: IaaS, PaaS, SaaS. Tìm hiểu về các dịch vụ cơ bản của AWS/Google Cloud như lưu trữ và máy chủ ảo."
+          data-tags="IaaS|PaaS|SaaS|Cloud Storage|Virtual Server">
+          <div class="skill-icon"><i class="fa-solid fa-cloud"></i></div>
+          <div>
+            <div class="skill-name">Cloud Computing</div>
+            <div class="skill-level">Cơ bản</div>
+            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODAL KỸ NĂNG (popup) ===== -->
+  <div class="modal-overlay" id="skillModal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeSkillModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-icon" id="modalIcon"></div>
+        <div>
+          <div class="modal-title" id="modalTitle"></div>
+          <div class="modal-subtitle" id="modalSubtitle"></div>
+        </div>
+      </div>
+      <div class="modal-progress-label">
+        <span>Mức độ thành thạo</span>
+        <span id="modalLevelPct"></span>
+      </div>
+      <div class="modal-progress-bar">
+        <div class="modal-progress-fill" id="modalFill"></div>
+      </div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: PROJECTS ===== -->
+  <!--
+    CÁCH THÊM DỰ ÁN:
+    1. Xoá khối <div class="no-projects">
+    2. Bỏ comment bao quanh <div class="project-list">
+    3. Sao chép thêm khối <div class="project-item"> theo mẫu
+  
+-->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Dự <span>án</span></h2>
+      <div class="title-line"></div>
+
+      <!--
+      <div class="project-list">
+        <div class="project-item">
+          <div class="project-header" onclick="toggleProject(this)">
+            <div class="project-header-left">
+              <div class="project-num">01</div>
+              <div>
+                <div class="project-header-title">Tên dự án</div>
+                <div class="project-header-tag">HTML · CSS · JavaScript</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-down project-arrow"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-body-inner">
+              <p class="project-desc">Mô tả ngắn về dự án của bạn ở đây.</p>
+              <div class="project-meta">
+                <span class="project-tech">HTML5</span>
+                <span class="project-tech">CSS3</span>
+                <span class="project-tech">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+      <!-- Xoá phần này khi đã có dự án -->
+      <div class="no-projects">
+        <i class="fa-regular fa-folder-open"></i>
+        <p>
+          <strong>Chưa có dự án nào</strong>
+          Hiện tại chưa có dự án được cập nhật. Vui lòng quay lại sau!
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: CONTACT ===== -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Liên <span>hệ</span></h2>
+      <div class="title-line"></div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Thông tin liên hệ</h3>
+          <div class="contact-info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>phanngoctuongan043@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <div class="form-group">
+            <label for="name">Họ và tên</label>
+            <input type="text" id="name" placeholder="Nhập họ và tên của bạn" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Nhập địa chỉ email của bạn" />
+          </div>
+          <div class="form-group">
+            <label for="message">Nội dung liên hệ</label>
+            <textarea id="message" placeholder="Nhập nội dung bạn muốn gửi..."></textarea>
+          </div>
+          <button class="btn-primary" onclick="handleSubmit()">
+            <i class="fa-solid fa-paper-plane" style="margin-right:0.4rem;"></i>
+            Gửi tin nhắn
+          </button>
+          <div class="thank-you" id="thankYou">
+            <i class="fa-solid fa-circle-check"></i>
+            Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi sớm nhất có thể.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2026 <span>Phan Ngọc Tường An</span></p>
+  </footer>
+
+  <!-- File JS của mình — để cuối body -->
+  <script src="script.js"></script>
+
+</body>
+</html>
