@@ -18,15 +18,15 @@
    1. BIẾN MÀU & RESET
 ============================================= */
 :root {
-  --primary:      #ddb8e4;   /* màu chủ đạo — đổi ở đây để thay toàn bộ màu */
+  --primary:      #5485c2;   /* màu chủ đạo — đổi ở đây để thay toàn bộ màu */
   --primary-dark: #3a55d4;   /* màu chủ đạo khi hover */
-  --bg:           #f5f7fa;   /* nền trang */
+  --bg:           #90b0df;   /* nền trang */
   --white:        #ffffff;
   --text:         #1e1e2e;   /* chữ chính */
   --text-light:   #6b7280;   /* chữ phụ / mô tả */
   --border:       #e5e7eb;   /* viền */
   --card:         #ffffff;   /* nền card */
-  --nav-bg:       #1e1e2e;   /* nền navbar */
+  --nav-bg:       #75bbc5;   /* nền navbar */
   --nav-text:     #d1d5db;   /* chữ navbar */
   --success:      #10b981;   /* màu xanh thành công */
 }
@@ -47,7 +47,23 @@ body {
   color: var(--text);
   line-height: 1.6;
 }
+/* ============================================
+   1.1 avatar
+   =========================================== */
+   .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;        /* ← cắt ảnh thành hình tròn */
+  border: 4px solid rgba(79,110,247,0.4);
+  margin: 0 auto 1.5rem;
+}
 
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* ← ảnh tự căn giữa, không bị méo */
+}
 
 /* =============================================
    2. NAVBAR
@@ -177,17 +193,14 @@ section {
    Nếu chữ khó đọc, bật thêm lớp tối ::before bên dưới
 ============================================= */
 #home {
-  background: linear-gradient(135deg, #7bd4df 0%, #2d2d44 100%);
+  background: url('assets/images/backgroud2.jpg') center/cover no-repeat;
   color: var(--white);
   text-align: center;
-
-  /* --- KHI DÙNG ẢNH NỀN: bỏ comment 2 dòng dưới, xoá dòng gradient trên --- */
-  /* background: url('images/bg.jpg') center/cover no-repeat; */
-  /* position: relative; */
+  position: relative;
 }
 
-/* Lớp tối phủ lên ảnh nền cho chữ dễ đọc — bỏ comment khi dùng ảnh */
-/*
+/* Lớp tối phủ lên ảnh để chữ dễ đọc */
+/* Chỉnh số 0.5 → tối hơn, 0.2 → sáng hơn */
 #home::before {
   content: '';
   position: absolute;
@@ -195,11 +208,12 @@ section {
   background: rgba(0, 0, 0, 0.5);
   z-index: 0;
 }
+
+/* Đẩy nội dung lên trên lớp tối */
 #home .container {
   position: relative;
   z-index: 1;
 }
-*/
 
 /* Ảnh đại diện */
 .avatar {
