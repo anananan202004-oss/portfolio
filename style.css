@@ -11,6 +11,7 @@
      8. Contact
      9. Footer
     10. Responsive (mobile)
+    11. Quản trị kỹ năng (Admin)
 ============================================= */
 
 
@@ -293,6 +294,7 @@ section {
 
 /* Card kỹ năng — có thể bấm */
 .skill-card {
+  position: relative;
   background: var(--card);
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
@@ -370,6 +372,8 @@ section {
   box-shadow: 0 20px 60px rgba(0,0,0,0.2);
   position: relative;
   animation: modalIn 0.25s ease;
+  max-height: 88vh;
+  overflow-y: auto;
 }
 
 @keyframes modalIn {
@@ -790,4 +794,110 @@ footer span {
   .home-name {
     font-size: 1.5rem;
   }
+}
+
+
+/* =============================================
+   11. QUẢN TRỊ KỸ NĂNG (Admin)
+   Chỉ hiện ra khi vào trang bằng ?admin=1 + đúng mật khẩu
+   (xem script.js — biến ADMIN_PASSWORD)
+============================================= */
+
+/* Badge nhỏ báo đang ở chế độ quản trị, góc trên phải màn hình */
+#adminBadge {
+  display: none; /* JS bật lên bằng align-items:center khi đăng nhập đúng */
+  position: fixed;
+  top: 70px;
+  right: 1rem;
+  z-index: 1500;
+  background: var(--success);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+
+/* Nút Sửa / Xóa nổi ở góc mỗi skill-card, chỉ hiện khi admin đăng nhập */
+.skill-admin-actions {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.skill-admin-btn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+
+.skill-admin-btn:hover {
+  transform: scale(1.1);
+}
+
+.skill-admin-btn.edit {
+  background: #eef0ff;
+  color: var(--primary);
+}
+
+.skill-admin-btn.delete {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Card "Thêm kỹ năng" cuối lưới, chỉ hiện khi admin đăng nhập */
+.skill-card-add {
+  justify-content: center;
+  border: 2px dashed var(--border);
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.skill-card-add:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: none;
+}
+
+/* Nút Sửa / Xóa nằm ngay trong header của mỗi dự án, chỉ hiện khi admin đăng nhập */
+.project-admin-actions {
+  display: flex;
+  gap: 0.35rem;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Nút "Thêm dự án" — chỉ hiện khi admin đăng nhập */
+.project-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--card);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.project-add-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }

@@ -14,6 +14,12 @@
 </head>
 <body>
 
+  <!-- ===== BADGE CHẾ ĐỘ QUẢN TRỊ (chỉ hiện khi đăng nhập admin đúng) ===== -->
+  <div id="adminBadge" onclick="adminLogout()">
+    <i class="fa-solid fa-lock-open"></i>
+    Chế độ quản trị (bấm để thoát)
+  </div>
+
   <!-- ===== NAVBAR ===== -->
   <nav>
     <a href="#home" class="nav-logo">My<span>Portfolio</span></a>
@@ -78,98 +84,23 @@
 
   <!-- ===== SECTION 3: SKILLS ===== -->
   <!--
-    CÁCH THÊM KỸ NĂNG MỚI:
-    Sao chép 1 khối <div class="skill-card"> và chỉnh các data-* sau:
-      data-title      : tên kỹ năng
-      data-level      : % thành thạo (0-100)
-      data-level-text : chữ hiển thị mức độ
-      data-desc       : mô tả ngắn
-      data-tags       : các tag, cách nhau bởi dấu |
+    GHI CHÚ: Danh sách kỹ năng bên dưới giờ được TẠO TỰ ĐỘNG bằng JavaScript
+    (xem script.js, mục "6. QUẢN LÝ KỸ NĂNG"), không còn viết cứng trong HTML nữa.
+    Để thêm/sửa/xóa kỹ năng, vào trang bằng link: yourlink.com/?admin=1
+    rồi nhập mật khẩu quản trị (đổi mật khẩu trong script.js, biến ADMIN_PASSWORD).
   -->
   <section id="skills">
     <div class="container">
       <h2 class="section-title">Kỹ <span>năng</span></h2>
       <div class="title-line"></div>
 
-      <div class="skills-grid">
-
-        <div class="skill-card" onclick="openSkillModal(this)"
-          data-title="HTML5" data-level="65" data-level-text="Cơ bản – Trung cấp"
-          data-desc="Nắm vững cấu trúc trang web với HTML5, biết sử dụng các thẻ ngữ nghĩa như header, section, article, footer. Có thể xây dựng bố cục trang web hoàn chỉnh."
-          data-tags="Semantic HTML|Forms|Tables|Media|Accessibility">
-          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
-          <div>
-            <div class="skill-name">HTML5</div>
-            <div class="skill-level">Cơ bản – Trung cấp</div>
-            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
-          </div>
-        </div>
-
-        <div class="skill-card" onclick="openSkillModal(this)"
-          data-title="CSS3" data-level="60" data-level-text="Cơ bản – Trung cấp"
-          data-desc="Biết tạo giao diện responsive với Flexbox và Grid. Có kinh nghiệm với animation, transition và CSS variables để xây dựng UI đẹp, nhất quán."
-          data-tags="Flexbox|Grid|Animation|Responsive|Variables">
-          <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
-          <div>
-            <div class="skill-name">CSS3</div>
-            <div class="skill-level">Cơ bản – Trung cấp</div>
-            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
-          </div>
-        </div>
-
-        <div class="skill-card" onclick="openSkillModal(this)"
-          data-title="Bootstrap 5" data-level="45" data-level-text="Cơ bản"
-          data-desc="Sử dụng được hệ thống grid của Bootstrap, các component cơ bản như navbar, card, button, modal. Biết tùy chỉnh giao diện nhanh chóng với utility classes."
-          data-tags="Grid System|Components|Utilities|Responsive">
-          <div class="skill-icon"><i class="fa-brands fa-bootstrap"></i></div>
-          <div>
-            <div class="skill-name">Bootstrap 5</div>
-            <div class="skill-level">Cơ bản</div>
-            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
-          </div>
-        </div>
-
-        <div class="skill-card" onclick="openSkillModal(this)"
-          data-title="JavaScript" data-level="40" data-level-text="Cơ bản"
-          data-desc="Hiểu các khái niệm căn bản: biến, hàm, vòng lặp, điều kiện, DOM manipulation. Có thể viết script đơn giản để xử lý sự kiện và tương tác với trang web."
-          data-tags="DOM|Events|Functions|Arrays|ES6 Basics">
-          <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
-          <div>
-            <div class="skill-name">JavaScript</div>
-            <div class="skill-level">Cơ bản</div>
-            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
-          </div>
-        </div>
-
-        <div class="skill-card" onclick="openSkillModal(this)"
-          data-title="GitHub" data-level="40" data-level-text="Cơ bản"
-          data-desc="Biết sử dụng Git cơ bản: init, add, commit, push, pull. Có thể tạo repository, quản lý phiên bản code và cộng tác thông qua GitHub."
-          data-tags="Git|Repository|Commit|Push/Pull|Version Control">
-          <div class="skill-icon"><i class="fa-brands fa-github"></i></div>
-          <div>
-            <div class="skill-name">GitHub</div>
-            <div class="skill-level">Cơ bản</div>
-            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
-          </div>
-        </div>
-
-        <div class="skill-card" onclick="openSkillModal(this)"
-          data-title="Cloud Computing" data-level="30" data-level-text="Cơ bản"
-          data-desc="Nắm được các khái niệm căn bản về điện toán đám mây: IaaS, PaaS, SaaS. Tìm hiểu về các dịch vụ cơ bản của AWS/Google Cloud như lưu trữ và máy chủ ảo."
-          data-tags="IaaS|PaaS|SaaS|Cloud Storage|Virtual Server">
-          <div class="skill-icon"><i class="fa-solid fa-cloud"></i></div>
-          <div>
-            <div class="skill-name">Cloud Computing</div>
-            <div class="skill-level">Cơ bản</div>
-            <div class="skill-hint"><i class="fa-solid fa-circle-info"></i> Bấm để xem chi tiết</div>
-          </div>
-        </div>
-
+      <div class="skills-grid" id="skillsGrid">
+        <!-- JS sẽ tự render các skill-card vào đây -->
       </div>
     </div>
   </section>
 
-  <!-- ===== MODAL KỸ NĂNG (popup) ===== -->
+  <!-- ===== MODAL KỸ NĂNG (popup xem chi tiết — ai cũng xem được) ===== -->
   <div class="modal-overlay" id="skillModal" onclick="closeModalOnOverlay(event)">
     <div class="modal-box">
       <button class="modal-close" onclick="closeSkillModal()">
@@ -194,79 +125,111 @@
     </div>
   </div>
 
+  <!-- ===== MODAL FORM THÊM/SỬA KỸ NĂNG (chỉ admin thấy được nút mở form này) ===== -->
+  <div class="modal-overlay" id="adminFormModal" onclick="closeAdminFormOnOverlay(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeEditForm()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <div>
+          <div class="modal-title" id="adminFormTitle">Thêm kỹ năng mới</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="formTitle">Tên kỹ năng</label>
+        <input type="text" id="formTitle" placeholder="VD: Python" />
+      </div>
+      <div class="form-group">
+        <label for="formIcon">Icon (class Font Awesome — tìm tại fontawesome.com/search)</label>
+        <input type="text" id="formIcon" placeholder="VD: fa-brands fa-python" />
+      </div>
+      <div class="form-group">
+        <label for="formLevel">Mức độ thành thạo (0-100)</label>
+        <input type="number" id="formLevel" min="0" max="100" placeholder="VD: 50" />
+      </div>
+      <div class="form-group">
+        <label for="formLevelText">Nhãn hiển thị mức độ</label>
+        <input type="text" id="formLevelText" placeholder="VD: Cơ bản" />
+      </div>
+      <div class="form-group">
+        <label for="formDesc">Mô tả</label>
+        <textarea id="formDesc" placeholder="Mô tả ngắn về kỹ năng..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="formTags">Tags (cách nhau bởi dấu phẩy)</label>
+        <input type="text" id="formTags" placeholder="VD: Django, Flask, OOP" />
+      </div>
+
+      <button class="btn-primary" style="width:100%;" onclick="saveSkillForm()">
+        <i class="fa-solid fa-floppy-disk" style="margin-right:0.4rem;"></i>
+        Lưu kỹ năng
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MODAL FORM THÊM/SỬA DỰ ÁN (chỉ admin thấy được nút mở form này) ===== -->
+  <div class="modal-overlay" id="adminProjectFormModal" onclick="closeProjectFormOnOverlay(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeProjectForm()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <div>
+          <div class="modal-title" id="adminProjectFormTitle">Thêm dự án mới</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="formProjectTitle">Tên dự án</label>
+        <input type="text" id="formProjectTitle" placeholder="VD: Web Portfolio Cá Nhân" />
+      </div>
+      <div class="form-group">
+        <label for="formProjectTag">Công nghệ dùng (hiện dưới tên dự án)</label>
+        <input type="text" id="formProjectTag" placeholder="VD: HTML · CSS · JavaScript" />
+      </div>
+      <div class="form-group">
+        <label for="formProjectDesc">Mô tả dự án</label>
+        <textarea id="formProjectDesc" placeholder="Mô tả ngắn về dự án..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="formProjectTechs">Tags công nghệ (cách nhau bởi dấu phẩy)</label>
+        <input type="text" id="formProjectTechs" placeholder="VD: HTML5, CSS3, JavaScript, Responsive" />
+      </div>
+      <div class="form-group">
+        <label for="formProjectGithub">Link GitHub (để trống nếu không có)</label>
+        <input type="text" id="formProjectGithub" placeholder="https://github.com/..." />
+      </div>
+      <div class="form-group">
+        <label for="formProjectDemo">Link Demo (để trống nếu không có)</label>
+        <input type="text" id="formProjectDemo" placeholder="https://..." />
+      </div>
+
+      <button class="btn-primary" style="width:100%;" onclick="saveProjectForm()">
+        <i class="fa-solid fa-floppy-disk" style="margin-right:0.4rem;"></i>
+        Lưu dự án
+      </button>
+    </div>
+  </div>
+
   <!-- ===== SECTION 4: PROJECTS ===== -->
   <!--
-    CÁCH THÊM DỰ ÁN:
-    1. Xoá khối <div class="no-projects">
-    2. Bỏ comment bao quanh <div class="project-list">
-    3. Sao chép thêm khối <div class="project-item"> theo mẫu
-  
--->
+    GHI CHÚ: Danh sách dự án bên dưới giờ được TẠO TỰ ĐỘNG bằng JavaScript
+    (xem script.js, mục "7. QUẢN LÝ DỰ ÁN"), không còn viết cứng trong HTML nữa.
+    Để thêm/sửa/xóa dự án: vào trang bằng link yourlink.com/?admin=1
+    rồi nhập mật khẩu quản trị (biến ADMIN_PASSWORD trong script.js).
+  -->
   <section id="projects">
     <div class="container">
       <h2 class="section-title">Dự <span>án</span></h2>
       <div class="title-line"></div>
 
-      <div class="project-list">
-
-  <div class="project-item">
-    <div class="project-header" onclick="toggleProject(this)">
-      <div class="project-header-left">
-        <div class="project-num">01</div>
-        <div>
-          <div class="project-header-title">Web Portfolio Cá Nhân</div>
-          <div class="project-header-tag">HTML · CSS · JavaScript</div>
-        </div>
+      <div class="project-list" id="projectList">
+        <!-- JS sẽ tự render các project-item vào đây -->
       </div>
-      <i class="fa-solid fa-chevron-down project-arrow"></i>
-    </div>
-    <div class="project-body">
-      <div class="project-body-inner">
-        <p class="project-desc">
-          Trang web portfolio cá nhân giới thiệu bản thân, kỹ năng và dự án.
-          Được xây dựng hoàn toàn bằng HTML, CSS và JavaScript thuần,
-          không sử dụng framework. Giao diện responsive, hiển thị tốt
-          trên cả máy tính lẫn điện thoại.
-        </p>
-        <div class="project-meta">
-          <span class="project-tech">HTML5</span>
-          <span class="project-tech">CSS3</span>
-          <span class="project-tech">JavaScript</span>
-          <span class="project-tech">Responsive</span>
-        </div>
-        <!-- Nút GitHub — thay link thật của bạn vào href -->
-<div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
-
-  <!-- Nút GitHub -->
-  <a href="https://github.com/anananan202004-oss/portfolio"
-     target="_blank"
-     style="display:inline-flex; align-items:center; gap:0.5rem;
-            background:#1e1e2e; color:#fff;
-            padding:0.5rem 1.1rem; border-radius:7px;
-            text-decoration:none; font-size:0.85rem; font-weight:600;">
-    <i class="fa-brands fa-github"></i> GitHub
-  </a>
-
-  <!-- Nút Netlify / Demo -->
-  <a href="https://portfoliocanhan.netlify.app/"
-     target="_blank"
-     style="display:inline-flex; align-items:center; gap:0.5rem;
-            background:#4f6ef7; color:#fff;
-            padding:0.5rem 1.1rem; border-radius:7px;
-            text-decoration:none; font-size:0.85rem; font-weight:600;">
-    <i class="fa-solid fa-globe"></i> Xem Demo
-  </a>
-
-</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-      
-
     </div>
   </section>
 
